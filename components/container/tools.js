@@ -16,7 +16,7 @@ export default class Tools extends React.Component {
   }
 
   render () {
-    const properties = ['width', 'height', 'background']
+    const properties = ['width', 'height', 'background', 'border-radius']
     return <Sidebar>
       {properties.map((property, index) => <div key={index}>
         <Property

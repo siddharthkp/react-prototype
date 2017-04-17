@@ -1,14 +1,17 @@
 import styled, {injectGlobal} from 'styled-components'
 
 injectGlobal`
+  @import url('https://fonts.googleapis.com/css?family=Lato:300');
   body {
     margin: 0;
     padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
   }
 `
 
 const Workspace = styled.div`
-  background: #eee;
+  background: #2F3130;
   width: 100vw;
   height: 100vh;
   padding: 10px;

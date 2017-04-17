@@ -11,11 +11,12 @@ const getProp = (type, props) => {
 const Component = styled.div`
   width: ${props => getProp('width', props) + 'px'}
   height: ${props => getProp('height', props) + 'px'}
+  border-radius: ${props => getProp('border-radius', props) + 'px'}
   background: ${props => getProp('background', props)}
 `
 
 export default ({properties}) => <div>
-  <Draggable defaultPosition={{x: 0, y: 0}} grid={[32, 32]}>
+  <Draggable defaultPosition={{x: 32, y: 32}} grid={[32, 32]}>
     <Component properties={properties}/>
   </Draggable>
 </div>

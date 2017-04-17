@@ -5,12 +5,12 @@ import ColorPicker from './tools/colorpicker'
 
 const StyledField = styled.div`
   padding: 10px;
-  border-bottom: 1px solid #DDD;
+  background: #373938;
 `
 
 const Property = (props) => <StyledField>
-  {props.name}:
-  {['height', 'width'].includes(props.name) ? <Slider
+  <span>{props.name}</span> {['height', 'width', 'border-radius'].includes(props.name) ? <Slider
+    name={props.name}
     defaultValue={props.defaultValue}
     onChange={value => props.onChange(props.name, value)}
   /> : ''}

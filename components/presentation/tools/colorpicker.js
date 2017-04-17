@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import {BlockPicker} from 'react-color'
 
-const Preview = styled.div`
-  background: ${props => props.color}
+const Preview = styled.span`
+  background: ${props => props.color};
+  display: inline-block;
   width: 20px;
   height: 20px;
   border-radius: 2px;
@@ -27,7 +28,7 @@ export default class ColorPicker extends React.Component {
     this.setState({color: color})
   }
   render () {
-    return <div>
+    return <span>
       <Preview color={this.state.color} onClick={this.toggle.bind(this)}></Preview>
       {this.state.open ? <BlockPicker
         color={this.state.color}
@@ -37,6 +38,6 @@ export default class ColorPicker extends React.Component {
           this.props.onChange(value.hex)
         }}
       /> : ''}
-    </div>
+    </span>
   }
 }

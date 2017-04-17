@@ -2,8 +2,18 @@ import React from 'react'
 import {injectGlobal} from 'styled-components'
 import Slider from 'rc-slider'
 
+const getMax = name => {
+  if (['height', 'width'].includes(name)) return 1024
+  else if (name === 'border-radius') return 20
+}
+
+const getStep = name => {
+  if (['height', 'width'].includes(name)) return 32
+  else if (name === 'border-radius') return 1
+}
+
 export default (props) => <Slider
-  min={0} max={1024} step={32}
+  min={0} max={getMax(props.name)} step={getStep(props.name)}
   defaultValue={parseInt(props.defaultValue, 10)}
   onChange={props.onChange}
 />
@@ -23,7 +33,7 @@ injectGlobal`
   .rc-slider-rail {
     position: absolute;
     width: 100%;
-    background-color: #e9e9e9;
+    background-color: #292929;
     height: 4px;
     border-radius: 6px;
   }
@@ -32,7 +42,7 @@ injectGlobal`
     left: 0;
     height: 4px;
     border-radius: 6px;
-    background-color: #abe2fb;
+    background-color: #5FACB1;
   }
   .rc-slider-handle {
     position: absolute;
@@ -42,11 +52,9 @@ injectGlobal`
     height: 14px;
     cursor: pointer;
     border-radius: 50%;
-    border: solid 2px #96dbfa;
-    background-color: #fff;
+    border: solid 2px #FFF;
+    background-color: #FFF;
   }
-  .rc-slider-handle:hover {border-color: #57c5f7;}
-  .rc-slider-handle-active:active {border-color: #57c5f7;}
   .rc-slider-step {
     position: absolute;
     width: 100%;
