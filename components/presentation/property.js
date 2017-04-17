@@ -28,7 +28,7 @@ const Property = (props) => <StyledField>
     {props.name === 'name' ? <Input
       type='text'
     /> : ''}
-    {['height', 'width', 'border'].includes(props.name) ? <Slider
+    {['height', 'width', 'border', 'fill'].includes(props.name) ? <Slider
       name={props.name}
       defaultValue={props.defaultValue}
       onChange={value => props.onChange(props.name, value)}

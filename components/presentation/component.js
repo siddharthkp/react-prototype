@@ -5,6 +5,7 @@ import defaultMap from '../../utils/componentDefaults'
 
 const getProp = (type, props) => {
   const properties = props.properties
+  if (type === 'background' && !properties.fill) return 'transparent'
   return properties[type] ? properties[type] : defaultMap[type]
 }
 
