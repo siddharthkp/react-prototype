@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Sidebar = styled.div`
   float: left;
-  background: #313332;
+  background: #007EE5;
   color: #FFF;
   border-left: 1px solid #EEE;
   width: calc(100% - 1024px - 20px);

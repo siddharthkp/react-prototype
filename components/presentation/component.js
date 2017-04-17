@@ -9,10 +9,10 @@ const getProp = (type, props) => {
 }
 
 const Component = styled.div`
-  width: ${props => getProp('width', props) + 'px'}
-  height: ${props => getProp('height', props) + 'px'}
-  border-radius: ${props => getProp('border-radius', props) + 'px'}
-  background: ${props => getProp('background', props)}
+  width: ${props => getProp('width', props) + 'px'};
+  height: ${props => getProp('height', props) + 'px'};
+  border-radius: ${props => getProp('border', props) + 'px'};
+  background: ${props => getProp('background', props)};
 `
 
 export default ({properties}) => <div>

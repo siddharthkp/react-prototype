@@ -26,6 +26,7 @@ injectGlobal`
     width: 100%;
     border-radius: 6px;
     box-sizing: border-box;
+    margin-top: 5px;
   }
   .rc-slider * {
     box-sizing: border-box;
@@ -33,7 +34,7 @@ injectGlobal`
   .rc-slider-rail {
     position: absolute;
     width: 100%;
-    background-color: #292929;
+    background-color: #3aa6ff;
     height: 4px;
     border-radius: 6px;
   }
@@ -42,7 +43,7 @@ injectGlobal`
     left: 0;
     height: 4px;
     border-radius: 6px;
-    background-color: #5FACB1;
+    background-color: #fff;
   }
   .rc-slider-handle {
     position: absolute;

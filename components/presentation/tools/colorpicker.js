@@ -9,7 +9,10 @@ const Preview = styled.span`
   height: 20px;
   border-radius: 2px;
   + .block-picker {
-    margin-top: -20px;
+    margin-top: -25px;
+    position: absolute;
+    z-index: 9;
+    margin-left: -50px;
   }
   + .block-picker > div:first-child {
     display: none;

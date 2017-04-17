@@ -2,6 +2,7 @@ import React from 'react'
 import defaultMap from '../../utils/componentDefaults'
 import Sidebar from '../presentation/sidebar'
 import Property from '../presentation/property'
+import Input from '../presentation/input'
 
 export default class Tools extends React.Component {
   constructor (props) {
@@ -16,7 +17,7 @@ export default class Tools extends React.Component {
   }
 
   render () {
-    const properties = ['width', 'height', 'background', 'border-radius']
+    const properties = ['name', 'width', 'height', 'background', 'border']
     return <Sidebar>
       {properties.map((property, index) => <div key={index}>
         <Property

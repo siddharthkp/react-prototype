@@ -1,3 +1,3 @@
 export default {
-  gridContrast: '0.03'
+  gridAlpha: 0.05
 }
