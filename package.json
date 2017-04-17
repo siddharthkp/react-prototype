@@ -1,0 +1,34 @@
+{
+  "name": "react-prototype",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "reaqt dev",
+    "start": "reaqt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siddharthkp/react-prototype.git"
+  },
+  "keywords": [],
+  "author": "siddharthkp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/siddharthkp/react-prototype/issues"
+  },
+  "homepage": "https://github.com/siddharthkp/react-prototype#readme",
+  "dependencies": {
+    "babel-plugin-transform-flow-comments": "6.22.0",
+    "babel-preset-stage-0": "6.16.0",
+    "rc-slider": "7.0.1",
+    "react-color": "2.10.0",
+    "react-draggable": "2.2.3",
+    "react-grid-layout": "0.14.4",
+    "react-resizable": "1.6.0",
+    "reaqt": "1.2.4"
+  },
+  "devDependencies": {
+    "babel-preset-stage-1": "6.22.0"
+  }
+}
