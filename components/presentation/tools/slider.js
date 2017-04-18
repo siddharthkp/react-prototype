@@ -2,20 +2,8 @@ import React from 'react'
 import {injectGlobal} from 'styled-components'
 import Slider from 'rc-slider'
 
-const getMax = name => {
-  if (['height', 'width'].includes(name)) return 1024
-  else if (name === 'border-radius') return 20
-  else if (name === 'fill') return 1
-}
-
-const getStep = name => {
-  if (['height', 'width'].includes(name)) return 32
-  else if (name === 'border-radius') return 1
-  else if (name === 'fill') return 1
-}
-
 export default (props) => <Slider
-  min={0} max={getMax(props.name)} step={getStep(props.name)}
+  min={props.spec.min} max={props.spec.max} step={props.spec.step}
   defaultValue={parseInt(props.defaultValue, 10)}
   onChange={props.onChange}
 />

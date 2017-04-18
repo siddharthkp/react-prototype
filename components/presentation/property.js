@@ -25,15 +25,16 @@ const Clear = styled.div`
 const Property = (props) => <StyledField>
   <Left>{props.name}</Left>
     <Right>
-    {props.name === 'name' ? <Input
+    {props.spec.type === 'text' ? <Input
       type='text'
+      defaultValue={props.defaultValue}
     /> : ''}
-    {['height', 'width', 'border', 'fill'].includes(props.name) ? <Slider
-      name={props.name}
+    {props.spec.type === 'number' ? <Slider
+      spec={props.spec}
       defaultValue={props.defaultValue}
       onChange={value => props.onChange(props.name, value)}
     /> : ''}
-    {props.name === 'background' ? <ColorPicker
+    {props.spec.type === 'color' ? <ColorPicker
       defaultValue={props.defaultValue}
       onChange={value => props.onChange(props.name, value)}
     /> : ''}

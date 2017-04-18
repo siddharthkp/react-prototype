@@ -2,12 +2,14 @@ import React from 'react'
 import Workspace from '../components/presentation/workspace'
 import Canvas from '../components/container/canvas'
 import Tools from '../components/container/tools'
-import defaultMap from '../utils/componentDefaults'
+import componentSpec from '../utils/componentSpec'
 
 export default class Root extends React.Component {
   constructor (props) {
     super(props)
-    this.state = defaultMap
+    const defaultValues = {}
+    for (let key in componentSpec) defaultValues[key] = componentSpec[key].default
+    this.state = defaultValues
   }
 
   update (properties) {

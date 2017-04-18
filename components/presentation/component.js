@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import Draggable from 'react-draggable'
-import defaultMap from '../../utils/componentDefaults'
+import componentSpec from '../../utils/componentSpec'
 
 const getProp = (type, props) => {
   const properties = props.properties
+
   if (type === 'background' && !properties.fill) return 'transparent'
-  return properties[type] ? properties[type] : defaultMap[type]
+  return properties[type] ? properties[type] : componentSpec[type]
 }
 
 const Component = styled.div`
