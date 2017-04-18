@@ -3,19 +3,17 @@ import styled from 'styled-components'
 import Draggable from 'react-draggable'
 import componentSpec from '../../utils/componentSpec'
 
-const getProp = (type, props) => {
-  const properties = props.properties
-
-  if (type === 'background' && !properties.fill) return 'transparent'
-  return properties[type] ? properties[type] : componentSpec[type]
+const getCSS = (properties) => {
+  const css = {}
+  Object.keys(componentSpec).map(property => {
+    css[property] = properties[property] || componentSpec[property].default
+    css[property] += componentSpec[property].unit || ''
+    if (property === 'background' && !properties.fill) css.background = 'transparent'
+  })
+  return css
 }
 
-const Component = styled.div`
-  width: ${props => getProp('width', props) + 'px'};
-  height: ${props => getProp('height', props) + 'px'};
-  border-radius: ${props => getProp('border', props) + 'px'};
-  background: ${props => getProp('background', props)};
-`
+const Component = styled.div`${props => getCSS(props.properties)}`
 
 export default ({properties}) => <div>
   <Draggable defaultPosition={{x: 32, y: 32}} grid={[32, 32]}>

@@ -21,10 +21,10 @@ export default class Tools extends React.Component {
     return <Sidebar>
       {properties.map((property, index) => <div key={index}>
         <Property
-          name={property}
+          name={componentSpec[property].displayName || property}
           spec={componentSpec[property]}
           defaultValue={this.props.properties[property]}
-          onChange={this.update.bind(this)}
+          onChange={value => this.update(property, value)}
         />
       </div>)}
     </Sidebar>

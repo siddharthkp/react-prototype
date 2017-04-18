@@ -32,11 +32,11 @@ const Property = (props) => <StyledField>
     {props.spec.type === 'number' ? <Slider
       spec={props.spec}
       defaultValue={props.defaultValue}
-      onChange={value => props.onChange(props.name, value)}
+      onChange={props.onChange}
     /> : ''}
     {props.spec.type === 'color' ? <ColorPicker
       defaultValue={props.defaultValue}
-      onChange={value => props.onChange(props.name, value)}
+      onChange={props.onChange}
     /> : ''}
   </Right>
   <Clear/>
