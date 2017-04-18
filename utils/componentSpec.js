@@ -6,7 +6,7 @@ const spec = {
   fill:             {default: 1, type: 'number', min: 0, max: 1, step: 1},
   'border-radius':  {default: 0, type: 'number', min: 0, max: 25, step: 1, displayName: 'rounded', unit: 'px'},
   'border-color':   {default: '#f47373', type: 'color'},
-  'border-width':   {default: 1, type: 'number', min: 0, max: 12, step: 1, unit: 'px'},
+  'border-width':   {default: 0, type: 'number', min: 0, max: 12, step: 1, unit: 'px'},
   'border-style':   {default: 'solid', type: 'text'},
 }
 
