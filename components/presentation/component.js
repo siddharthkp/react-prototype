@@ -15,8 +15,8 @@ const getCSS = (properties) => {
 
 const Component = styled.div`${props => getCSS(props.properties)}`
 
-export default ({properties}) => <div>
+export default ({properties, onClick}) => <div>
   <Draggable defaultPosition={{x: 32, y: 32}} grid={[32, 32]}>
-    <Component properties={properties}/>
+    <Component properties={properties} onClick={onClick}/>
   </Draggable>
 </div>

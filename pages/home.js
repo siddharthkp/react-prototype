@@ -14,35 +14,38 @@ const getDefauts = () => {
 export default class Root extends React.Component {
   constructor (props) {
     super(props)
-    this.state = getDefauts()
+    const newComponentState = getDefauts()
+    this.state = {canvas: [newComponentState], activeIndex: 0}
   }
 
-  componentDidMount () {
-    this.restore()
-  }
-
-  restore () {
-    const restoredState = (localStorage.rp && JSON.parse(localStorage.rp)) || {}
-    this.setState(restoredState)
-  }
-
-  persist (newState) {
-    localStorage.setItem('rp', JSON.stringify(newState))
+  new () {
+    const newComponentState = getDefauts()
+    this.setState(prevState => {
+      prevState.canvas.push(newComponentState)
+      prevState.activeIndex = prevState.canvas.length - 1
+      return prevState
+    })
   }
 
   update (properties) {
     this.setState(prevState => {
-      const newState = Object.assign(prevState, properties)
-      debounce(this.persist(newState), 1000)
+      const activeIndex = this.state.activeIndex
+      const newState = Object.assign(prevState.canvas[activeIndex], properties)
       return newState
     })
+  }
 
+  active (index) {
+    this.setState({activeIndex: index})
   }
 
   render () {
     return <Workspace>
-      <Canvas properties={this.state} update={this.update.bind(this)}/>
-      <Tools properties={this.state} update={this.update.bind(this)}/>
+      <Canvas
+        components={this.state.canvas}
+        onClick={this.active.bind(this)}
+      />
+      <Tools properties={this.state.canvas[this.state.activeIndex]} update={this.update.bind(this)} new={this.new.bind(this)}/>
     </Workspace>
   }
 }
