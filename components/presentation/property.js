@@ -27,7 +27,7 @@ const Property = (props) => <StyledField>
     <Right>
     {props.spec.type === 'text' ? <Input
       type='text'
-      defaultValue={props.defaultValue}
+      value={props.defaultValue}
       onChange={event => props.onChange(event.target.value)}
     /> : ''}
     {props.spec.type === 'number' ? <Slider

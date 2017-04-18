@@ -3,6 +3,7 @@ import Workspace from '../components/presentation/workspace'
 import Canvas from '../components/container/canvas'
 import Tools from '../components/container/tools'
 import componentSpec from '../utils/componentSpec'
+import debounce from 'debounce'
 
 const getDefauts = () => {
   const defaultValues = {}
@@ -21,19 +22,21 @@ export default class Root extends React.Component {
   }
 
   restore () {
-    const rp = (localStorage.rp && JSON.parse(localStorage.rp)) || {}
-    this.setState(rp[this.state.name])
+    const restoredState = (localStorage.rp && JSON.parse(localStorage.rp)) || {}
+    this.setState(restoredState)
   }
 
-  persist () {
-    const rp = (localStorage.rp && JSON.parse(localStorage.rp)) || {}
-    rp[this.state.name] = this.state
-    localStorage.setItem('rp', JSON.stringify(rp))
+  persist (newState) {
+    localStorage.setItem('rp', JSON.stringify(newState))
   }
 
   update (properties) {
-    this.setState(Object.assign(this.state, properties))
-    this.persist()
+    this.setState(prevState => {
+      const newState = Object.assign(prevState, properties)
+      debounce(this.persist(newState), 1000)
+      return newState
+    })
+
   }
 
   render () {
