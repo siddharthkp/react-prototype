@@ -6,7 +6,7 @@ import Input from './input'
 
 const StyledField = styled.div`
   padding: 10px;
-  height: 50px;
+  height: 30px;
 `
 
 const Left = styled.div`
@@ -28,6 +28,7 @@ const Property = (props) => <StyledField>
     {props.spec.type === 'text' ? <Input
       type='text'
       defaultValue={props.defaultValue}
+      onChange={event => props.onChange(event.target.value)}
     /> : ''}
     {props.spec.type === 'number' ? <Slider
       spec={props.spec}
