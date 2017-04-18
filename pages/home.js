@@ -4,16 +4,36 @@ import Canvas from '../components/container/canvas'
 import Tools from '../components/container/tools'
 import componentSpec from '../utils/componentSpec'
 
+const getDefauts = () => {
+  const defaultValues = {}
+  for (let key in componentSpec) defaultValues[key] = componentSpec[key].default
+  return defaultValues
+}
+
 export default class Root extends React.Component {
   constructor (props) {
     super(props)
-    const defaultValues = {}
-    for (let key in componentSpec) defaultValues[key] = componentSpec[key].default
-    this.state = defaultValues
+    this.state = getDefauts()
+  }
+
+  componentDidMount () {
+    this.restore()
+  }
+
+  restore () {
+    const rp = (localStorage.rp && JSON.parse(localStorage.rp)) || {}
+    this.setState(rp[this.state.name])
+  }
+
+  persist () {
+    const rp = (localStorage.rp && JSON.parse(localStorage.rp)) || {}
+    rp[this.state.name] = this.state
+    localStorage.setItem('rp', JSON.stringify(rp))
   }
 
   update (properties) {
     this.setState(Object.assign(this.state, properties))
+    this.persist()
   }
 
   render () {

@@ -4,7 +4,7 @@ import Slider from 'rc-slider'
 
 export default (props) => <Slider
   min={props.spec.min} max={props.spec.max} step={props.spec.step}
-  defaultValue={parseInt(props.defaultValue, 10)}
+  value={parseInt(props.defaultValue, 10)}
   onChange={props.onChange}
 />
 
