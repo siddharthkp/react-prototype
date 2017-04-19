@@ -27,6 +27,14 @@ export default class Root extends React.Component {
     })
   }
 
+  remove () {
+    this.setState(prevState => {
+      prevState.canvas[this.state.activeIndex].left = -1000
+      prevState.activeIndex = prevState.canvas.length - 1
+      return prevState
+    })
+  }
+
   update (properties) {
     this.setState(prevState => {
       const activeIndex = this.state.activeIndex
@@ -45,7 +53,12 @@ export default class Root extends React.Component {
         components={this.state.canvas}
         onClick={this.active.bind(this)}
       />
-      <Tools properties={this.state.canvas[this.state.activeIndex]} update={this.update.bind(this)} new={this.new.bind(this)}/>
+      <Tools
+        properties={this.state.canvas[this.state.activeIndex]}
+        update={this.update.bind(this)}
+        new={this.new.bind(this)}
+        remove={this.remove.bind(this)}
+      />
     </Workspace>
   }
 }

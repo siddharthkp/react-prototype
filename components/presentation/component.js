@@ -9,6 +9,7 @@ const getCSS = (properties) => {
     css[property] = properties[property] || componentSpec[property].default
     css[property] += componentSpec[property].unit || ''
     if (property === 'background' && !properties.fill) css.background = 'transparent'
+    if (property === 'opacity') css.opacity = properties.opacity / 100
   })
   return css
 }

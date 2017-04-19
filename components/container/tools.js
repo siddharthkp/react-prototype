@@ -20,6 +20,7 @@ export default class Tools extends React.Component {
     const properties = Object.keys(componentSpec)
     return <Sidebar>
       <div onClick={this.props.new} style={{textAlign: 'center'}}>+</div>
+      <div onClick={this.props.remove} style={{textAlign: 'center'}}>x</div>
       {properties.map((property, index) => <div key={index}>
         <Property
           name={componentSpec[property].displayName || property}
