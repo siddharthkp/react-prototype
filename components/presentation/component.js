@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Draggable from 'react-draggable'
+import {DraggableCore} from 'react-draggable'
 import componentSpec from '../../utils/componentSpec'
 
 const getCSS = (properties) => {
@@ -21,8 +21,15 @@ const getCSS = (properties) => {
 
 const Component = styled.div`${props => getCSS(props.properties)}`
 
-export default ({properties, onClick}) => <div>
-  <Draggable defaultPosition={{x: 32, y: 32}} grid={[32, 32]}>
+export default ({properties, onClick, update}) => <div>
+  <DraggableCore
+    defaultPosition={{x: properties.left, y: properties.top}}
+    grid={[componentSpec.left.step, componentSpec.top.step]}
+    onDrag={(event, data) => update({
+      top: properties.top + data.deltaY,
+      left: properties.left + data.deltaX,
+    })}
+    >
     <Component properties={properties} onClick={onClick}/>
-  </Draggable>
+  </DraggableCore>
 </div>

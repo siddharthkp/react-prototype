@@ -9,8 +9,9 @@ const spec = {
   'border-width':   {default: 0, type: 'number', min: 0, max: 12, step: 1, unit: 'px'},
   'border-style':   {default: 'solid', type: 'text'},
   'opacity':        {default: 100, type: 'number', min: 0, max: 100, step: 10},
-  'position':       {default: 'absolute', type: 'text'},
-  'left':           {default: 0, type: 'number', unit: 'px'}
+  'position':       {default: 'relative', type: 'text'},
+  'top':            {default: 32, type: 'number', unit: 'px', min: 0, max: 1024, step: 32},
+  'left':           {default: 32, type: 'number', unit: 'px', min: 0, max: 1024, step: 32}
 }
 
 export default spec

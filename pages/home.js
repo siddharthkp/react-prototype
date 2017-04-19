@@ -52,6 +52,7 @@ export default class Root extends React.Component {
       <Canvas
         components={this.state.canvas}
         onClick={this.active.bind(this)}
+        update={this.update.bind(this)}
       />
       <Tools
         properties={this.state.canvas[this.state.activeIndex]}
