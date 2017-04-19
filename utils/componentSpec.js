@@ -11,7 +11,8 @@ const spec = {
   'opacity':        {default: 100, type: 'number', min: 0, max: 100, step: 10},
   'position':       {default: 'absolute', type: 'text'},
   'top':            {default: 42, type: 'number', unit: 'px', min: 0, max: 1024, step: 32},
-  'left':           {default: 42, type: 'number', unit: 'px', min: 0, max: 1024, step: 32}
+  'left':           {default: 42, type: 'number', unit: 'px', min: 0, max: 1024, step: 32},
+  'transition':     {default: 'all 0.1s', type: 'text'}
 }
 
 export default spec
