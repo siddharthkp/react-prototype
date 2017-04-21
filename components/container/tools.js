@@ -25,7 +25,13 @@ export default class Tools extends React.Component {
     return <Sidebar>
       <StyledProperty>
         <Button onClick={this.props.new}>+</Button>
-        <Button onClick={this.props.remove}>x</Button>
+        <Button onClick={this.props.remove}>✕</Button>
+        <div></div>
+      </StyledProperty>
+
+      <StyledProperty>
+        <Button onClick={this.props.undo}>↺</Button>
+        <Button onClick={this.props.redo}>↻</Button>
         <div></div>
       </StyledProperty>
 

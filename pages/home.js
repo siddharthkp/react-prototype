@@ -16,6 +16,8 @@ export default class Root extends React.Component {
   select (index) {this.setState(canvas.select(index))}
   update (properties) {this.setState(canvas.update(properties))}
   remove () {this.setState(canvas.remove())}
+  undo () {this.setState(canvas.undo())}
+  redo () {this.setState(canvas.redo())}
 
   render () {
     const update = this.props.update
@@ -31,6 +33,9 @@ export default class Root extends React.Component {
         update={this.update.bind(this)}
         new={this.new.bind(this)}
         remove={this.remove.bind(this)}
+        undo={this.undo.bind(this)}
+        redo={this.redo.bind(this)}
+
       /> : ''}
     </Workspace>
   }
