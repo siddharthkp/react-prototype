@@ -3,7 +3,6 @@ import Workspace from '../components/presentation/workspace'
 import Canvas from '../components/container/canvas'
 import Tools from '../components/container/tools'
 import canvas from '../utils/canvas'
-import debounce from 'debounce'
 
 export default class Root extends React.Component {
   constructor (props) {

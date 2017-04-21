@@ -21,12 +21,9 @@
   "dependencies": {
     "babel-plugin-transform-flow-comments": "6.22.0",
     "babel-preset-stage-0": "6.16.0",
-    "debounce": "1.0.0",
     "rc-slider": "7.0.1",
     "react-color": "2.10.0",
     "react-draggable": "2.2.3",
-    "react-grid-layout": "0.14.4",
-    "react-resizable": "1.6.0",
     "reaqt": "1.2.4"
   },
   "devDependencies": {
