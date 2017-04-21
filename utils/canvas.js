@@ -7,12 +7,14 @@ const add = () => {
   const component = Object.assign({}, defaultComponent)
   canvas.components.push(component)
   canvas.active = canvas.components.length - 1
+  persist()
   return canvas
 }
 
 const remove = () => {
   canvas.components[canvas.active].left = -2000
   canvas.active = canvas.components.length - 1
+  persist()
   return canvas
 }
 
