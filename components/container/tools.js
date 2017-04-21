@@ -3,6 +3,8 @@ import componentSpec from '../../utils/componentSpec'
 import Sidebar from '../presentation/sidebar'
 import Property from '../presentation/property'
 import Input from '../presentation/input'
+import Button from '../presentation/button'
+import StyledProperty from '../presentation/styled-property'
 
 export default class Tools extends React.Component {
   constructor (props) {
@@ -21,8 +23,12 @@ export default class Tools extends React.Component {
     .filter(property => !componentSpec[property].hidden)
 
     return <Sidebar>
-      <div onClick={this.props.new} style={{textAlign: 'center'}}>+</div>
-      <div onClick={this.props.remove} style={{textAlign: 'center'}}>x</div>
+      <StyledProperty>
+        <Button onClick={this.props.new}>+</Button>
+        <Button onClick={this.props.remove}>x</Button>
+        <div></div>
+      </StyledProperty>
+
       {properties.map((property, index) => <div key={index}>
         <Property
           name={componentSpec[property].displayName || property}
