@@ -18,6 +18,8 @@ export default class Tools extends React.Component {
 
   render () {
     const properties = Object.keys(componentSpec)
+    .filter(property => !componentSpec[property].hidden)
+
     return <Sidebar>
       <div onClick={this.props.new} style={{textAlign: 'center'}}>+</div>
       <div onClick={this.props.remove} style={{textAlign: 'center'}}>x</div>
