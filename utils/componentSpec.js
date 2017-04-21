@@ -17,6 +17,7 @@ const spec = {
 
   'border-style':   {default: 'solid', type: 'text', hidden: true},
   position:         {default: 'absolute', type: 'text', hidden: true},
+  display:          {default: 'block', type: 'text', hidden: true},
   transition:       {default: 'all 0.1s', type: 'text', hidden: true}
 }
 

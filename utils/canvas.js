@@ -12,7 +12,8 @@ const add = () => {
 }
 
 const remove = () => {
-  canvas.components[canvas.active].left = -2000
+  canvas.components[canvas.active].display = 'none'
+  canvas.components[canvas.active].hidden = true
   canvas.active = canvas.components.length - 1
   persist()
   return canvas
@@ -30,12 +31,13 @@ const update = (properties) => {
 }
 
 const persist = () => {
-  localStorage.setItem('components', JSON.stringify(canvas.components))
+  const state = canvas.components.slice(0).filter(component => !component.hidden)
+  localStorage.setItem('components', JSON.stringify(state))
 }
 
 const restore = () => {
   if (localStorage.components) canvas.components = JSON.parse(localStorage.components)
-  else canvas.add()
+  if (!canvas.components.length) canvas.add()
   return canvas
 }
 
