@@ -5,7 +5,7 @@ import Component from '../presentation/component'
 
 const Canvas = styled.div`
   float: left;
-  width: 75%;
+  width: 55%;
   height: 80%;
 `
 

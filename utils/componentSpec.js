@@ -2,7 +2,7 @@ const spec = {
   name:             {default: 'component', type: 'text'},
 
   top:              {default: 52, type: 'number', unit: 'px', min: 0, max: 1024, step: 32},
-  left:             {default: 181, type: 'number', unit: 'px', min: 0, max: 1024, step: 32},
+  left:             {default: 261, type: 'number', unit: 'px', min: 0, max: 1024, step: 32},
   width:            {default: 96, type: 'number', min: 0, max: 1024, step: 32, unit: 'px'},
   height:           {default: 64, type: 'number', min: 0, max: 1024, step: 32, unit: 'px'},
 

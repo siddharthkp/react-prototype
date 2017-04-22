@@ -1,6 +1,7 @@
 import React from 'react'
 import Workspace from '../components/presentation/workspace'
 import Canvas from '../components/container/canvas'
+import Library from '../components/container/library'
 import Tools from '../components/container/tools'
 import canvas from '../utils/canvas'
 
@@ -23,6 +24,7 @@ export default class Root extends React.Component {
   render () {
     const update = this.props.update
     return <Workspace>
+      <Library components={this.state.components}/>
       <Canvas
         components={this.state.components}
         active={this.state.active}
