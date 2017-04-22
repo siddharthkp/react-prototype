@@ -1,4 +1,5 @@
 import componentSpec from '../utils/componentSpec'
+import getCSS from '../utils/css'
 
 const defaultComponent = {}
 for (let key in componentSpec) defaultComponent[key] = componentSpec[key].default
@@ -59,9 +60,49 @@ const restore = () => {
   return canvas
 }
 
+const getComponents = () => {
+  let string = `
+import React from 'react'
+import styled from 'styled-components'
+  `
+  canvas.components.map(component => {
+    const styles = getCSS(component)
+    const name = styles.name
+
+    delete styles.name
+    delete styles.transition
+    delete styles.position
+    delete styles.display
+    delete styles.fill
+
+    string += `
+const ${name.charAt(0).toUpperCase() + component.name.slice(1)} = styled.div\`
+  ${JSON.stringify(styles, null, 2).slice(1).slice(0, -1)}
+\`
+    `
+  })
+  return string
+}
+
+const download = () => {
+  const a = document.createElement("a")
+  const data = getComponents()
+  const file = new Blob([data], {type: 'text'})
+
+  const url = URL.createObjectURL(file)
+  a.href = url
+  a.download = 'components.js'
+  document.body.appendChild(a)
+  a.click()
+  setTimeout(function() {
+    document.body.removeChild(a)
+    window.URL.revokeObjectURL(url)
+  }, 0)
+}
+
 const canvas = {
   components: [], active: 0,
-  add, remove, update, select, restore, undo, redo
+  add, remove, update, select, restore, undo, redo, export: download
 }
 
 export default canvas

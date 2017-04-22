@@ -18,6 +18,7 @@ export default class Root extends React.Component {
   remove () {this.setState(canvas.remove())}
   undo () {this.setState(canvas.undo())}
   redo () {this.setState(canvas.redo())}
+  export() {canvas.export()}
 
   render () {
     const update = this.props.update
@@ -35,7 +36,7 @@ export default class Root extends React.Component {
         remove={this.remove.bind(this)}
         undo={this.undo.bind(this)}
         redo={this.redo.bind(this)}
-
+        export={this.export}
       /> : ''}
     </Workspace>
   }

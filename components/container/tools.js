@@ -23,6 +23,7 @@ export default class Tools extends React.Component {
     .filter(property => !componentSpec[property].hidden)
 
     return <Sidebar>
+
       <StyledProperty>
         <Button onClick={this.props.new}>+</Button>
         <Button onClick={this.props.remove}>✕</Button>
@@ -43,6 +44,13 @@ export default class Tools extends React.Component {
           onChange={value => this.update(property, value)}
         />
       </div>)}
+
+      <StyledProperty>
+        <Button onClick={this.props.export}>export</Button>
+        <div></div>
+        <div></div>
+      </StyledProperty>
+
     </Sidebar>
   }
 }
