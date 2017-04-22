@@ -1,13 +1,13 @@
 const spec = {
   name:             {default: 'component', type: 'text'},
 
-  top:              {default: 42, type: 'number', unit: 'px', min: 0, max: 1024, step: 32},
-  left:             {default: 42, type: 'number', unit: 'px', min: 0, max: 1024, step: 32},
+  top:              {default: 62, type: 'number', unit: 'px', min: 0, max: 1024, step: 32},
+  left:             {default: 190, type: 'number', unit: 'px', min: 0, max: 1024, step: 32},
   width:            {default: 96, type: 'number', min: 0, max: 1024, step: 32, unit: 'px'},
   height:           {default: 64, type: 'number', min: 0, max: 1024, step: 32, unit: 'px'},
 
-  background:       {default: '#2EE940', type: 'color'},
   fill:             {default: 1, type: 'number', min: 0, max: 1, step: 1},
+  background:       {default: '#13CE66', type: 'color'},
 
   'border-radius':  {default: 0, type: 'number', min: 0, max: 25, step: 1, displayName: 'rounded', unit: 'px'},
   'border-color':   {default: '#f47373', type: 'color'},

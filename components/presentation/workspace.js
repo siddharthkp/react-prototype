@@ -11,10 +11,9 @@ injectGlobal`
 `
 
 const Workspace = styled.div`
-  background: #DCE6E9;
+  background: #EFF2F7;
   width: 100vw;
   height: 100vh;
-  padding: 10px;
 `
 
 export default Workspace
